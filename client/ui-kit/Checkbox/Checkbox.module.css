@@ -1,0 +1,21 @@
+.checkboxContainer {
+  display: flex;
+}
+.checkboxInput {
+  display: none;
+}
+.label {
+  display: flex;
+  align-items: center;
+}
+span {
+  margin-left: 10px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 13.44px;
+}
+.spanCheckbox {
+  display: flex;
+  flex-wrap: nowrap;
+}

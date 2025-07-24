@@ -1,0 +1,39 @@
+.textAreaOverlay {
+  width: 100%;
+  padding-left: 20px;
+}
+.textAreaContent {
+  display: flex;
+  flex-direction: column;
+}
+h6 {
+  margin: 0;
+  font-family: Inter;
+  font-size: 11px;
+  font-weight: 1000;
+  line-height: 12px;
+  letter-spacing: -0.2px;
+  color: black;
+  padding-bottom: 5px;
+}
+.textAreaHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+.textAreaBody textarea {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.3px;
+  border: none;
+  outline: none;
+  width: 100%;
+  resize: none;
+}
+hr.textAreaHr {
+  margin-top: 2px;
+  border: 1px solid rgba(115, 115, 115, 1);
+  opacity: 0.5;
+}

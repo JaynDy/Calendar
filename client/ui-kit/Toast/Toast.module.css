@@ -1,0 +1,29 @@
+.toastContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 16px 50px 0px rgba(0, 0, 0, 0.24);
+  border-radius: 8px 8px 0px 0px;
+  width: 242px;
+  height: 52px;
+  margin: 20px;
+}
+
+.toastMessage {
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 25px;
+  letter-spacing: -0.6px;
+}
+
+.toastClose {
+  cursor: pointer;
+}
+button {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+}

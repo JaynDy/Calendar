@@ -1,0 +1,130 @@
+.dayViewContainer {
+  position: absolute;
+  margin: 0 30px 30px;
+  top: 98px;
+  left: 300px;
+  border-radius: 8px;
+  max-height: 100%;
+  max-width: calc(100% - 370px);
+  width: 100%;
+  box-shadow: 0px 1px 3px 0px rgba(222, 223, 229, 1);
+}
+.tableWrapper {
+  padding-right: 3px;
+  max-height: 650px;
+  overflow-y: auto;
+  position: relative;
+}
+.tableWrapper::-webkit-scrollbar {
+  width: 4px;
+}
+.tableWrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(222, 223, 229, 1);
+  border-radius: 3px;
+}
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid rgba(222, 223, 229, 1);
+  box-shadow: 0px 1px 3px 0px rgba(222, 223, 229, 1);
+}
+tbody {
+  overflow-y: auto;
+  position: relative;
+}
+td,
+th {
+  padding: 0;
+  box-sizing: border-box;
+}
+.hourTable,
+.hourTableForDayView {
+  width: 100%;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 1);
+}
+.hourTable {
+  table-layout: fixed;
+}
+.firstTd {
+  width: 7%;
+  border-right: 1px solid rgba(222, 223, 229, 1);
+  border-bottom: 1px solid rgba(222, 223, 229, 1);
+}
+.firstTdForDayView {
+  width: 1%;
+  border-right: 1px solid rgba(222, 223, 229, 1);
+}
+.formattedDateButton {
+  background: rgba(223, 245, 226, 1);
+  padding: 8px 50px;
+  margin: 7px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+}
+.formattedWeekButton {
+  padding: 8px 0;
+  margin: 7px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.dateDay,
+.dateHeaderDay {
+  font-family: Inter;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: -0.3px;
+  text-align: center;
+}
+.dateDayWeek,
+.dateHeaderDayWeek {
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: -0.2px;
+}
+.dateHeaderDay {
+  border-right: 1px solid rgba(222, 223, 229, 1);
+  position: relative;
+}
+.dateContainer {
+  border-radius: 8px;
+  padding: 10px 0;
+  margin-bottom: 4px;
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+}
+.hourCell {
+  text-align: center;
+  position: relative;
+  top: -50px;
+}
+.eventCell {
+  border: 1px solid rgba(222, 223, 229, 1);
+  padding: 0;
+  width: calc(100% / 7);
+}
+.hourWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  height: 99px;
+  width: 100%;
+  box-sizing: border-box;
+}

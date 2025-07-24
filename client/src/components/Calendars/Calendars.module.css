@@ -1,0 +1,111 @@
+.calendarsAppContainer {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 100%;
+  position: relative;
+}
+.formContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.titleCalendars {
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+.imgPlus {
+  display: flex;
+  align-items: center;
+  border: none;
+}
+.calendarsContainer {
+  margin: 0 0 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.calendarsContainer::-webkit-scrollbar {
+  width: 4px;
+}
+.calendarsContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(222, 223, 229, 1);
+  border-radius: 3px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0 10px;
+  margin: 0;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.calendarItem {
+  position: relative;
+}
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.3px;
+  height: 100%;
+}
+li:last-child {
+  margin-bottom: 0;
+}
+.checkBoxContainer {
+  display: flex;
+  width: 100%;
+  border-radius: 8px;
+  padding: 5px 5px 5px 10px;
+}
+.textContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+textarea::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+textarea:focus {
+  outline: none;
+}
+.editSpan {
+  display: flex;
+  flex-wrap: wrap;
+  border: none;
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.3px;
+  resize: none;
+  width: 100%;
+  margin: 0;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.hovered {
+  background: rgba(246, 247, 248, 1);
+}
+.imgCheckMarker,
+.imgEdit {
+  padding-left: 6px;
+  margin-right: 0;
+  width: 16px;
+}

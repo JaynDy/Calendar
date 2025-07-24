@@ -1,0 +1,32 @@
+.eventAllDayContainer {
+  margin-top: 66px;
+}
+.eventTableContainer {
+  min-height: 30px;
+  position: relative;
+  width: 100%;
+  left: 0;
+  border-radius: 3px;
+}
+.verticalLine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 3px;
+}
+.datasEvent {
+  padding-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.2px;
+  border-collapse: collapse;
+  overflow: hidden;
+  text-align: left;
+}

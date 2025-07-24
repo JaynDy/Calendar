@@ -1,0 +1,100 @@
+.datePickerContainer {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 1);
+  width: calc(240px - 14px);
+  height: calc(284px - 4px);
+  border-radius: 8px;
+  padding: 2px 4px 2px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: -0.3px;
+  position: absolute;
+  top: 140px;
+  left: 50px;
+  z-index: 10;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  height: 22px;
+  width: 100%;
+  padding: 8px 0;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+.chevronIcon path {
+  stroke: rgba(50, 55, 73, 1);
+}
+.dateContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.weekdays {
+  width: 100%;
+  display: flex;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: -0.3px;
+  color: rgba(50, 55, 73, 1);
+}
+.dates {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.3px;
+  color: rgba(50, 55, 73, 1);
+}
+
+.weekday,
+.day {
+  width: 14.2%;
+  text-align: center;
+  padding: 6px 0;
+}
+
+.empty {
+  visibility: hidden;
+}
+
+.day {
+  cursor: pointer;
+}
+
+.today {
+  background-color: rgba(0, 174, 28, 1);
+  color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+}
+.selectedDay {
+  background-color: rgba(0, 174, 28, 1);
+  color: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+}
+
+.prevMonthDay,
+.nextMonthDay {
+  color: rgba(50, 55, 73, 1);
+  opacity: 0.2;
+}
+.todayButton {
+  padding: 5px;
+}

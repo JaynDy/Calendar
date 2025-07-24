@@ -1,0 +1,9 @@
+.iconList {
+  background-color: rgba(205, 205, 205, 1);
+  display: flex;
+  flex-wrap: wrap;
+  width: 346px;
+}
+.iconItem {
+  padding: 10px;
+}

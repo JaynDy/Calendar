@@ -1,0 +1,35 @@
+a {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.3px;
+  text-decoration: none;
+}
+
+.linkDefault {
+  color: rgba(0, 174, 28, 1);
+}
+
+.linkDisabled {
+  color: rgba(87, 93, 88, 1);
+  pointer-events: none;
+}
+
+.linkHover {
+  color: rgba(0, 174, 28, 1);
+}
+
+.linkHover:hover {
+  text-decoration: underline;
+  color: rgba(0, 174, 28, 1);
+}
+
+.linkPressed {
+  color: rgba(0, 174, 28, 1);
+}
+
+.linkPressed:active {
+  text-decoration: underline;
+  color: rgba(12, 213, 43, 1);
+}

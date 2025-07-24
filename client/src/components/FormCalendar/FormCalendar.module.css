@@ -1,0 +1,96 @@
+.formContent {
+  width: 294px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 23px;
+  z-index: 1000;
+  box-shadow: 0px 16px 50px 0px rgba(0, 0, 0, 0.24);
+}
+.editForm,
+.createForm {
+  position: absolute;
+  z-index: 10;
+  background-color: rgb(164, 51, 162);
+  padding: 20px;
+}
+.titleCalendar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+.headerCalendars {
+  font-family: Inter;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: -0.6px;
+  color: rgba(50, 55, 73, 1);
+  margin: 0;
+}
+.hrForm {
+  margin: 0 10px 5px;
+  border-radius: 1px solid (222, 223, 229, 1);
+  opacity: 0.3;
+}
+.inputContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 15px;
+  margin-bottom: 15px;
+}
+.imgLetterT {
+  fill: rgba(91, 95, 110, 1);
+  padding-top: 8px;
+}
+.imgPalette {
+  fill: rgba(91, 95, 110, 1);
+  padding-bottom: 45px;
+}
+label {
+  font-family: Inter;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 12px;
+  color: rgba(50, 55, 73, 1);
+  padding: 0;
+}
+.labelInputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 15px;
+}
+
+.buttonSave {
+  color: rgba(255, 255, 255, 1);
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.3px;
+  padding: 10px 30px;
+  margin-right: 15px;
+}
+.imgPlus {
+  fill: rgba(50, 55, 73, 1);
+}
+.imgCart {
+  padding: 0 7px;
+}
+.imgClose {
+  cursor: pointer;
+}
+.titleInputForm {
+  width: 230px;
+}

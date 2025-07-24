@@ -1,0 +1,139 @@
+.formContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.titleCalendars {
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+.imgPlus {
+  display: flex;
+  align-items: center;
+  border: none;
+}
+.tasksContainer {
+  margin: 0 0 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.tasksContainer::-webkit-scrollbar {
+  width: 4px;
+}
+.tasksContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(222, 223, 229, 1);
+  border-radius: 3px;
+}
+
+.eventItem {
+  position: relative;
+}
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.3px;
+  height: 100%;
+}
+li:last-child {
+  margin-bottom: 0;
+}
+.completeContainer {
+  display: flex;
+  width: 100%;
+  border-radius: 8px;
+  padding: 5px 5px 5px 10px;
+}
+.textContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+textarea::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+textarea:focus {
+  outline: none;
+}
+.editSpan {
+  display: flex;
+  flex-wrap: wrap;
+  border: none;
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.3px;
+  resize: none;
+  width: 100%;
+  margin: 0;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.hovered {
+  background: rgba(246, 247, 248, 1);
+}
+.imgCheckMarker,
+.imgEdit {
+  padding-left: 6px;
+  margin-right: 0;
+  width: 16px;
+}
+main {
+  padding: 30px 50px;
+  height: 100vh;
+}
+.createButton {
+  display: flex;
+  justify-content: center;
+  width: 240px;
+  padding: 5px 0;
+}
+.calendars {
+  display: flex;
+  flex-direction: column;
+  margin-top: 308px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+  width: 240px;
+}
+.titleCalendars,
+.titleCalendar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.headerCalendars {
+  font-family: Inter;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: -0.3px;
+}
+.imgPlus {
+  fill: rgba(50, 55, 73, 1);
+}
+.imgContainer {
+  display: flex;
+  gap: 5px;
+}
