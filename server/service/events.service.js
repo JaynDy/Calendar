@@ -24,7 +24,7 @@ class EventsService {
     calendar,
     description,
     recurrenceId,
-    completed
+    completed,
   ) {
     try {
       return this.eventsModel.create({
@@ -69,41 +69,52 @@ class EventsService {
         {
           completed: !previous.completed,
         },
-        { new: true }
+        { new: true },
       )
       .exec();
   }
 
-  async updateEvent(
-    id,
-    updatedText,
-    updatedDate,
-    updatedTime,
-    updatedIsAllDay,
-    updatedPeriodicity,
-    updatedCalendar,
-    updatedDescription,
-    updatedRecurrenceId,
-    updatedCompleted
-  ) {
+  // async updateEvent(
+  //   id,
+  //   updatedText,
+  //   updatedDate,
+  //   updatedTime,
+  //   updatedIsAllDay,
+  //   updatedPeriodicity,
+  //   updatedCalendar,
+  //   updatedDescription,
+  //   updatedRecurrenceId,
+  //   updatedCompleted
+  // ) {
+  //   const updatedEvent = await this.eventsModel
+  //     .findByIdAndUpdate(
+  //       id,
+  //       {
+  //         title: updatedText,
+  //         date: updatedDate,
+  //         time: updatedTime,
+  //         isAllDay: updatedIsAllDay,
+  //         periodicity: updatedPeriodicity,
+  //         calendar: updatedCalendar,
+  //         description: updatedDescription,
+  //         recurrenceId: updatedRecurrenceId,
+  //         completed: updatedCompleted,
+  //       },
+  //       { new: true }
+  //     )
+  //     .exec();
+
+  //   return updatedEvent;
+  // }
+
+  async updateEvent(id, updatedFields) {
     const updatedEvent = await this.eventsModel
       .findByIdAndUpdate(
         id,
-        {
-          title: updatedText,
-          date: updatedDate,
-          time: updatedTime,
-          isAllDay: updatedIsAllDay,
-          periodicity: updatedPeriodicity,
-          calendar: updatedCalendar,
-          description: updatedDescription,
-          recurrenceId: updatedRecurrenceId,
-          completed: updatedCompleted,
-        },
-        { new: true }
+        { $set: updatedFields },
+        { new: true, runValidators: true },
       )
       .exec();
-
     return updatedEvent;
   }
 
@@ -121,20 +132,20 @@ class EventsService {
           .findByIdAndUpdate(
             event.id,
             {
-              title: updatedEvent.updatedText,
-              date: updatedEvent.updatedDate,
-              time: updatedEvent.updatedTime,
-              isAllDay: updatedEvent.updatedIsAllDay,
-              periodicity: updatedEvent.updatedPeriodicity,
-              calendar: updatedEvent.updatedCalendar,
-              description: updatedEvent.updatedDescription,
-              recurrenceId: updatedEvent.updatedRecurrenceId,
-              completed: updatedEvent.updatedCompleted,
+              title: updatedEvent.title,
+              date: updatedEvent.date,
+              time: updatedEvent.time,
+              isAllDay: updatedEvent.isAllDay,
+              periodicity: updatedEvent.periodicity,
+              calendar: updatedEvent.calendar,
+              description: updatedEvent.description,
+              recurrenceId: updatedEvent.recurrenceId,
+              completed: updatedEvent.completed,
             },
-            { new: true }
+            { new: true },
           )
           .exec();
-      })
+      }),
     );
 
     return updatedEventList.filter(Boolean);

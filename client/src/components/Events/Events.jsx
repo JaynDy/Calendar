@@ -43,7 +43,7 @@ export const Events = ({
   const [isEditingSinglEvent, setIsEditingSinglEvent] = useState(false);
   const validationErrors = {};
   const reccurenceCurrentEventsLength = postQueryEvents.filter(
-    (event) => event.recurrenceId === currentEvent.recurrenceId
+    (event) => event.recurrenceId === currentEvent.recurrenceId,
   ).length;
   // console.log(reccurenceCurrentEventsLength);
 
@@ -76,17 +76,30 @@ export const Events = ({
       };
 
       if (isEditingSinglEvent && currentEvent.id) {
+        // await updateEvent.mutateAsync({
+        //   id: currentEvent.id,
+        //   updatedText: eventToSubmit.title,
+        //   updatedDate: eventToSubmit.date,
+        //   updatedTime: eventToSubmit.time,
+        //   updatedIsAllDay: eventToSubmit.isAllDay,
+        //   updatedPeriodicity: eventToSubmit.periodicity,
+        //   updatedCalendar: eventToSubmit.calendar,
+        //   updatedDescription: eventToSubmit.description,
+        //   updatedRecurrenceId: eventToSubmit.recurrenceId,
+        //   updatedCompleted: eventToSubmit.completed,
+        // });
+
         await updateEvent.mutateAsync({
           id: currentEvent.id,
-          updatedText: eventToSubmit.title,
-          updatedDate: eventToSubmit.date,
-          updatedTime: eventToSubmit.time,
-          updatedIsAllDay: eventToSubmit.isAllDay,
-          updatedPeriodicity: eventToSubmit.periodicity,
-          updatedCalendar: eventToSubmit.calendar,
-          updatedDescription: eventToSubmit.description,
-          updatedRecurrenceId: eventToSubmit.recurrenceId,
-          updatedCompleted: eventToSubmit.completed,
+          title: eventToSubmit.title,
+          date: eventToSubmit.date,
+          time: eventToSubmit.time,
+          isAllDay: eventToSubmit.isAllDay,
+          periodicity: eventToSubmit.periodicity,
+          calendar: eventToSubmit.calendar,
+          description: eventToSubmit.description,
+          recurrenceId: eventToSubmit.recurrenceId,
+          completed: eventToSubmit.completed,
         });
       } else if (
         currentEvent.id &&
@@ -97,12 +110,12 @@ export const Events = ({
         console.log("Current event periodicity:", currentEvent.periodicity);
 
         const recurringEvents = postQueryEvents.filter(
-          (event) => event.recurrenceId === currentEvent.recurrenceId
+          (event) => event.recurrenceId === currentEvent.recurrenceId,
         );
         console.log("recurringEvents", recurringEvents);
 
         const currentIndex = recurringEvents.findIndex(
-          (event) => event.id === currentEvent.id
+          (event) => event.id === currentEvent.id,
         );
         console.log("currentIndex", currentIndex);
 
@@ -120,21 +133,35 @@ export const Events = ({
           }
           console.log(
             `Updated event ${index} (ID: ${recurringEvents[index].id}) newDate:`,
-            newDate
+            newDate,
           );
 
+          // return {
+          //   recurrenceId: recurringEvent.recurrenceId,
+          //   updatedText: eventToSubmit.title,
+          //   updatedDate: newDate.toISOString(),
+          //   updatedTime: eventToSubmit.time,
+          //   updatedIsAllDay: eventToSubmit.isAllDay,
+          //   updatedPeriodicity: eventToSubmit.periodicity,
+          //   updatedCalendar: eventToSubmit.calendar,
+          //   updatedDescription: eventToSubmit.description,
+          //   updatedRecurrenceId: eventToSubmit.recurrenceId,
+          //   updatedCompleted: eventToSubmit.completed,
+          //   id: recurringEvent.id,
+          // };
+
           return {
-            recurrenceId: recurringEvent.recurrenceId,
-            updatedText: eventToSubmit.title,
-            updatedDate: newDate.toISOString(),
-            updatedTime: eventToSubmit.time,
-            updatedIsAllDay: eventToSubmit.isAllDay,
-            updatedPeriodicity: eventToSubmit.periodicity,
-            updatedCalendar: eventToSubmit.calendar,
-            updatedDescription: eventToSubmit.description,
-            updatedRecurrenceId: eventToSubmit.recurrenceId,
-            updatedCompleted: eventToSubmit.completed,
+            // id: recurringEvent.recurrenceId,
             id: recurringEvent.id,
+            title: eventToSubmit.title,
+            date: newDate.toISOString(),
+            time: eventToSubmit.time,
+            isAllDay: eventToSubmit.isAllDay,
+            periodicity: eventToSubmit.periodicity,
+            calendar: eventToSubmit.calendar,
+            description: eventToSubmit.description,
+            recurrenceId: eventToSubmit.recurrenceId,
+            completed: eventToSubmit.completed,
           };
         });
         await updateRecurrenceEvents.mutateAsync(updatedEvents);
@@ -203,7 +230,7 @@ export const Events = ({
 
   const handleDeleteRecurrenceEvent = (recurrenceId) => {
     const reccurenceEventsToDelete = postQueryEvents.filter(
-      (event) => event.recurrenceId === recurrenceId
+      (event) => event.recurrenceId === recurrenceId,
     );
     console.log("reccurenceEvents to delete:", reccurenceEventsToDelete);
     if (reccurenceEventsToDelete.length > 0) {

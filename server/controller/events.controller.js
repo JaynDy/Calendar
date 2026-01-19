@@ -50,7 +50,7 @@ async function addEvent(req, res) {
       calendar,
       description,
       recurrenceId,
-      completed
+      completed,
     );
     res.status(201).json(newEvent);
   } catch (error) {
@@ -91,9 +91,8 @@ async function deleteAllCalendarEvents(req, res) {
 async function deleteAllRecurrenceEvents(req, res) {
   const { recurrenceId } = req.body;
   try {
-    const deleteAllRecurrenceEvents = await eventsService.deleteAllReccurence(
-      recurrenceId
-    );
+    const deleteAllRecurrenceEvents =
+      await eventsService.deleteAllReccurence(recurrenceId);
     res.status(200).json(deleteAllRecurrenceEvents);
   } catch (error) {
     console.error("Error deleting events:", error);
@@ -103,30 +102,33 @@ async function deleteAllRecurrenceEvents(req, res) {
 
 async function updateEvent(req, res) {
   const eventId = req.params.id;
-  const {
-    updatedText,
-    updatedDate,
-    updatedTime,
-    updatedIsAllDay,
-    updatedPeriodicity,
-    updatedCalendar,
-    updatedDescription,
-    updatedRecurrenceId,
-    updatedCompleted,
-  } = req.body;
+  console.log("Received body:", req.body);
 
-  const updateEvent = await eventsService.updateEvent(
-    eventId,
-    updatedText,
-    updatedDate,
-    updatedTime,
-    updatedIsAllDay,
-    updatedPeriodicity,
-    updatedCalendar,
-    updatedDescription,
-    updatedRecurrenceId,
-    updatedCompleted
-  );
+  // const {
+  //   updatedText,
+  //   updatedDate,
+  //   updatedTime,
+  //   updatedIsAllDay,
+  //   updatedPeriodicity,
+  //   updatedCalendar,
+  //   updatedDescription,
+  //   updatedRecurrenceId,
+  //   updatedCompleted,
+  // } = req.body;
+
+  // const updateEvent = await eventsService.updateEvent(
+  //   eventId,
+  //   updatedText,
+  //   updatedDate,
+  //   updatedTime,
+  //   updatedIsAllDay,
+  //   updatedPeriodicity,
+  //   updatedCalendar,
+  //   updatedDescription,
+  //   updatedRecurrenceId,
+  //   updatedCompleted
+  // );
+  const updateEvent = await eventsService.updateEvent(eventId, req.body);
   res.status(200).json(updateEvent);
 }
 
@@ -137,7 +139,7 @@ async function updateAllRecurenceEvents(req, res) {
   try {
     const updatedEventGroup = await eventsService.updateAllRecurrenceEvents(
       recurrenceId,
-      updatedEvents
+      updatedEvents,
     );
     console.log("Number of updated documents:", updatedEventGroup);
     res.status(200).json(updatedEventGroup);

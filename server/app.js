@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const { PORT, DB_NAME } = require("./constants/constants");
 const router = require("./routes/router");
@@ -24,7 +25,7 @@ app.engine(
   engine({
     defaultLayout: "main",
     extname: "hbs",
-  })
+  }),
 );
 app.set("view engine", "hbs");
 app.set("views", "./views");
@@ -33,7 +34,9 @@ app.use(router);
 
 async function init() {
   try {
-    await mongoose.connect(`mongodb://0.0.0.0:27017/${DB_NAME}`);
+    const mongoUri =
+      process.env.MONGODB_URI || `mongodb://127.0.0.1:27017/${DB_NAME}`;
+    await mongoose.connect(mongoUri);
     console.log(`[mongo] Connected to database success: ${DB_NAME}`);
 
     await createDefaultCalendar();
