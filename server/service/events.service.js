@@ -74,49 +74,49 @@ class EventsService {
       .exec();
   }
 
-  // async updateEvent(
-  //   id,
-  //   updatedText,
-  //   updatedDate,
-  //   updatedTime,
-  //   updatedIsAllDay,
-  //   updatedPeriodicity,
-  //   updatedCalendar,
-  //   updatedDescription,
-  //   updatedRecurrenceId,
-  //   updatedCompleted
-  // ) {
-  //   const updatedEvent = await this.eventsModel
-  //     .findByIdAndUpdate(
-  //       id,
-  //       {
-  //         title: updatedText,
-  //         date: updatedDate,
-  //         time: updatedTime,
-  //         isAllDay: updatedIsAllDay,
-  //         periodicity: updatedPeriodicity,
-  //         calendar: updatedCalendar,
-  //         description: updatedDescription,
-  //         recurrenceId: updatedRecurrenceId,
-  //         completed: updatedCompleted,
-  //       },
-  //       { new: true }
-  //     )
-  //     .exec();
-
-  //   return updatedEvent;
-  // }
-
-  async updateEvent(id, updatedFields) {
+  async updateEvent(
+    id,
+    updatedText,
+    updatedDate,
+    updatedTime,
+    updatedIsAllDay,
+    updatedPeriodicity,
+    updatedCalendar,
+    updatedDescription,
+    updatedRecurrenceId,
+    updatedCompleted,
+  ) {
     const updatedEvent = await this.eventsModel
       .findByIdAndUpdate(
         id,
-        { $set: updatedFields },
-        { new: true, runValidators: true },
+        {
+          title: updatedText,
+          date: updatedDate,
+          time: updatedTime,
+          isAllDay: updatedIsAllDay,
+          periodicity: updatedPeriodicity,
+          calendar: updatedCalendar,
+          description: updatedDescription,
+          recurrenceId: updatedRecurrenceId,
+          completed: updatedCompleted,
+        },
+        { new: true },
       )
       .exec();
+
     return updatedEvent;
   }
+
+  // async updateEvent(id, updatedFields) {
+  //   const updatedEvent = await this.eventsModel
+  //     .findByIdAndUpdate(
+  //       id,
+  //       { $set: updatedFields },
+  //       { new: true, runValidators: true },
+  //     )
+  //     .exec();
+  //   return updatedEvent;
+  // }
 
   async updateAllRecurrenceEvents(recurrenceId, updates) {
     const recurringEvents = await this.eventsModel
@@ -132,15 +132,15 @@ class EventsService {
           .findByIdAndUpdate(
             event.id,
             {
-              title: updatedEvent.title,
-              date: updatedEvent.date,
-              time: updatedEvent.time,
-              isAllDay: updatedEvent.isAllDay,
-              periodicity: updatedEvent.periodicity,
-              calendar: updatedEvent.calendar,
-              description: updatedEvent.description,
-              recurrenceId: updatedEvent.recurrenceId,
-              completed: updatedEvent.completed,
+              title: updatedEvent.updatedText,
+              date: updatedEvent.updatedDate,
+              time: updatedEvent.updatedTime,
+              isAllDay: updatedEvent.updatedIsAllDay,
+              periodicity: updatedEvent.updatedPeriodicity,
+              calendar: updatedEvent.updatedCalendar,
+              description: updatedEvent.updatedDescription,
+              recurrenceId: updatedEvent.updatedRecurrenceId,
+              completed: updatedEvent.updatedCompleted,
             },
             { new: true },
           )

@@ -104,31 +104,31 @@ async function updateEvent(req, res) {
   const eventId = req.params.id;
   console.log("Received body:", req.body);
 
-  // const {
-  //   updatedText,
-  //   updatedDate,
-  //   updatedTime,
-  //   updatedIsAllDay,
-  //   updatedPeriodicity,
-  //   updatedCalendar,
-  //   updatedDescription,
-  //   updatedRecurrenceId,
-  //   updatedCompleted,
-  // } = req.body;
+  const {
+    updatedText,
+    updatedDate,
+    updatedTime,
+    updatedIsAllDay,
+    updatedPeriodicity,
+    updatedCalendar,
+    updatedDescription,
+    updatedRecurrenceId,
+    updatedCompleted,
+  } = req.body;
 
-  // const updateEvent = await eventsService.updateEvent(
-  //   eventId,
-  //   updatedText,
-  //   updatedDate,
-  //   updatedTime,
-  //   updatedIsAllDay,
-  //   updatedPeriodicity,
-  //   updatedCalendar,
-  //   updatedDescription,
-  //   updatedRecurrenceId,
-  //   updatedCompleted
-  // );
-  const updateEvent = await eventsService.updateEvent(eventId, req.body);
+  const updateEvent = await eventsService.updateEvent(
+    eventId,
+    updatedText,
+    updatedDate,
+    updatedTime,
+    updatedIsAllDay,
+    updatedPeriodicity,
+    updatedCalendar,
+    updatedDescription,
+    updatedRecurrenceId,
+    updatedCompleted,
+  );
+  // const updateEvent = await eventsService.updateEvent(eventId, req.body);
   res.status(200).json(updateEvent);
 }
 

@@ -76,31 +76,31 @@ export const Events = ({
       };
 
       if (isEditingSinglEvent && currentEvent.id) {
-        // await updateEvent.mutateAsync({
-        //   id: currentEvent.id,
-        //   updatedText: eventToSubmit.title,
-        //   updatedDate: eventToSubmit.date,
-        //   updatedTime: eventToSubmit.time,
-        //   updatedIsAllDay: eventToSubmit.isAllDay,
-        //   updatedPeriodicity: eventToSubmit.periodicity,
-        //   updatedCalendar: eventToSubmit.calendar,
-        //   updatedDescription: eventToSubmit.description,
-        //   updatedRecurrenceId: eventToSubmit.recurrenceId,
-        //   updatedCompleted: eventToSubmit.completed,
-        // });
-
         await updateEvent.mutateAsync({
           id: currentEvent.id,
-          title: eventToSubmit.title,
-          date: eventToSubmit.date,
-          time: eventToSubmit.time,
-          isAllDay: eventToSubmit.isAllDay,
-          periodicity: eventToSubmit.periodicity,
-          calendar: eventToSubmit.calendar,
-          description: eventToSubmit.description,
-          recurrenceId: eventToSubmit.recurrenceId,
-          completed: eventToSubmit.completed,
+          updatedText: eventToSubmit.title,
+          updatedDate: eventToSubmit.date,
+          updatedTime: eventToSubmit.time,
+          updatedIsAllDay: eventToSubmit.isAllDay,
+          updatedPeriodicity: eventToSubmit.periodicity,
+          updatedCalendar: eventToSubmit.calendar,
+          updatedDescription: eventToSubmit.description,
+          updatedRecurrenceId: eventToSubmit.recurrenceId,
+          updatedCompleted: eventToSubmit.completed,
         });
+
+        // await updateEvent.mutateAsync({
+        //   id: currentEvent.id,
+        //   title: eventToSubmit.title,
+        //   date: eventToSubmit.date,
+        //   time: eventToSubmit.time,
+        //   isAllDay: eventToSubmit.isAllDay,
+        //   periodicity: eventToSubmit.periodicity,
+        //   calendar: eventToSubmit.calendar,
+        //   description: eventToSubmit.description,
+        //   recurrenceId: eventToSubmit.recurrenceId,
+        //   completed: eventToSubmit.completed,
+        // });
       } else if (
         currentEvent.id &&
         currentEvent.periodicity !== "Does not repeat" &&
@@ -136,33 +136,33 @@ export const Events = ({
             newDate,
           );
 
+          return {
+            recurrenceId: recurringEvent.recurrenceId,
+            updatedText: eventToSubmit.title,
+            updatedDate: newDate.toISOString(),
+            updatedTime: eventToSubmit.time,
+            updatedIsAllDay: eventToSubmit.isAllDay,
+            updatedPeriodicity: eventToSubmit.periodicity,
+            updatedCalendar: eventToSubmit.calendar,
+            updatedDescription: eventToSubmit.description,
+            updatedRecurrenceId: eventToSubmit.recurrenceId,
+            updatedCompleted: eventToSubmit.completed,
+            id: recurringEvent.id,
+          };
+
           // return {
-          //   recurrenceId: recurringEvent.recurrenceId,
-          //   updatedText: eventToSubmit.title,
-          //   updatedDate: newDate.toISOString(),
-          //   updatedTime: eventToSubmit.time,
-          //   updatedIsAllDay: eventToSubmit.isAllDay,
-          //   updatedPeriodicity: eventToSubmit.periodicity,
-          //   updatedCalendar: eventToSubmit.calendar,
-          //   updatedDescription: eventToSubmit.description,
-          //   updatedRecurrenceId: eventToSubmit.recurrenceId,
-          //   updatedCompleted: eventToSubmit.completed,
+          //   id: recurringEvent.recurrenceId,
+          //   title: eventToSubmit.title,
+          //   date: newDate.toISOString(),
+          //   time: eventToSubmit.time,
+          //   isAllDay: eventToSubmit.isAllDay,
+          //   periodicity: eventToSubmit.periodicity,
+          //   calendar: eventToSubmit.calendar,
+          //   description: eventToSubmit.description,
+          //   recurrenceId: eventToSubmit.recurrenceId,
+          //   completed: eventToSubmit.completed,
           //   id: recurringEvent.id,
           // };
-
-          return {
-            // id: recurringEvent.recurrenceId,
-            id: recurringEvent.id,
-            title: eventToSubmit.title,
-            date: newDate.toISOString(),
-            time: eventToSubmit.time,
-            isAllDay: eventToSubmit.isAllDay,
-            periodicity: eventToSubmit.periodicity,
-            calendar: eventToSubmit.calendar,
-            description: eventToSubmit.description,
-            recurrenceId: eventToSubmit.recurrenceId,
-            completed: eventToSubmit.completed,
-          };
         });
         await updateRecurrenceEvents.mutateAsync(updatedEvents);
       } else {
