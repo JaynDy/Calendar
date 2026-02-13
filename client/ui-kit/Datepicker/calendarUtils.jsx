@@ -18,18 +18,35 @@ export const renderCalendar = (currentDate) => {
   const daysInPrevMonth = getDaysInMonth(prevMonth, prevMonthYear);
 
   for (let i = firstDayOfMonth - 1; i >= 0; i--) {
-    days.push({ day: daysInPrevMonth - i, className: "prevMonthDay" });
+    const day = daysInPrevMonth - i;
+    days.push({
+      day,
+      date: new Date(prevMonthYear, prevMonth, day),
+      className: "prevMonthDay",
+    });
   }
 
   for (let day = 1; day <= daysInMonth; day++) {
     const isToday = isCurrentMonth && day === today.getDate();
-    days.push({ day: day, className: isToday ? "today" : "" });
+    days.push({
+      day,
+      date: new Date(year, month, day),
+      className: isToday ? "today" : "",
+    });
   }
 
   const totalDays = days.length;
   const remainingDays = 42 - totalDays;
-  for (let i = 1; i <= remainingDays; i++) {
-    days.push({ day: i, className: "nextMonthDay" });
+
+  const nextMonth = month === 11 ? 0 : month + 1;
+  const nextMonthYear = month === 11 ? year + 1 : year;
+
+  for (let day = 1; day <= remainingDays; day++) {
+    days.push({
+      day,
+      date: new Date(nextMonthYear, nextMonth, day),
+      className: "nextMonthDay",
+    });
   }
 
   return { days };
