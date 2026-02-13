@@ -22,7 +22,7 @@ export const Datepicker = ({
     const newDate = new Date(
       currentDate.getFullYear(),
       currentDate.getMonth(),
-      day
+      day,
     );
 
     dispatch(setCurrentEvent({ date: newDate.toISOString() }));
@@ -35,7 +35,7 @@ export const Datepicker = ({
       <div className={styles.datePickerContainer}>
         <div className={styles.controls}>
           <div>{`${monthNames[new Date(currentDate).getMonth()]} ${new Date(
-            currentDate
+            currentDate,
           ).getFullYear()}`}</div>
           <div className={styles.buttonContainer}>
             <button type="button" onClick={handlePrevMonth}>
@@ -62,7 +62,8 @@ export const Datepicker = ({
                   item.className === "today" && currentDate === null,
                 [styles.prevMonthDay]: item.className === "prevMonthDay",
                 [styles.nextMonthDay]: item.className === "nextMonthDay",
-                [styles.selectedDay]: item.day === currentDate?.getDate(),
+                [styles.selectedDay]:
+                  item.date?.toDateString() === currentDate?.toDateString(),
               })}
               onClick={() => handleDateClick(item.day, item.className)}
               onChange={onDateChange}
